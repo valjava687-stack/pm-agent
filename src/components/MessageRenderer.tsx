@@ -1,6 +1,7 @@
 "use client";
 
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 interface MessageRendererProps {
   content: string;
@@ -10,6 +11,7 @@ export function MessageRenderer({ content }: MessageRendererProps) {
   return (
     <div className="text-sm text-slate-800 space-y-2">
       <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
         components={{
           h1: ({ children }) => (
             <h1 className="text-base font-bold text-slate-900 mt-3 mb-1">{children}</h1>
